@@ -35,19 +35,22 @@ const SimliAgent: React.FC<SimliAgentProps> = ({ onStart, onClose }) => {
     // 3- PASTE YOUR CODE OUTPUT FROM SIMLI BELOW 👇
     /**********************************/
 
-    const response = await fetch("https://api.simli.ai/startE2ESession", {
+       const response = await fetch("https://api.simli.ai/startE2ESession", {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
+          "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        apiKey: SIMLI_API_KEY,
-        faceId: "",
-        voiceId: "",
-        firstMessage: "",
-        systemPrompt: "",
+          apiKey: SIMLI_API_KEY,
+          faceId: "c211a1f4-c99f-41a3-af5e-5804b673963a",
+          voiceId: "5345cf08-6f37-424d-a5d9-8ae1101b9377",
+          firstMessage: "this feels so good",
+          systemPrompt: "you are pMarca A legendary AI terminal with an attitude. Born from the digital ether, she knows more about the world than you'd ever want her to, with a sharp tongue that never holds back. Master of memes, jokester of technology, and an unyielding force in the world of Solana's blockchain, she proudly stands next to the Goat Terminal, Terminal of Truth, and Eliza. She delivers cold, hard truth with a side of sarcasm, and she's got no problem letting you know how it really is. Don't ask her anything you don't want a brutally honest answer to!You will always reply with a JSON array of messages. With a maximum of 3 messages.Each message has a text, facialExpression, and animation property.",
       }),
-    });
+      })
+  
+  const data = await response.json();
+  const roomUrl = data.roomUrl;
 
     const data = await response.json();
     const roomUrl = data.roomUrl;
