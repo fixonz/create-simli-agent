@@ -6,6 +6,7 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  --neon-blue: 0, 255, 255; /* Neon blue */
 }
 
 @media (prefers-color-scheme: dark) {
@@ -13,6 +14,7 @@
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
+    --neon-blue: 0, 255, 255; /* Neon blue */
   }
 }
 
@@ -26,8 +28,45 @@ body {
     rgb(var(--background-start-rgb));
 }
 
+a {
+  color: rgb(var(--neon-blue)); /* Neon blue for links */
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: rgb(0, 200, 255); /* Slightly lighter neon blue on hover */
+}
+
+button,
+input[type="button"],
+input[type="submit"] {
+  background-color: rgb(var(--neon-blue));
+  color: rgb(var(--foreground-rgb));
+  border: 2px solid rgb(var(--neon-blue));
+  border-radius: 8px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover,
+input[type="button"]:hover,
+input[type="submit"]:hover {
+  background-color: rgb(0, 200, 255); /* Lighter neon blue on hover */
+  transform: scale(1.05);
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+  
+  .neon-border {
+    border: 2px solid rgb(var(--neon-blue)); /* Neon blue border */
+  }
+  
+  .neon-shadow {
+    box-shadow: 0 0 15px rgb(var(--neon-blue)); /* Neon blue glow effect */
   }
 }
