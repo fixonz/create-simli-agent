@@ -7,8 +7,8 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Simli Agent",
-  description: "create-simli-agent",
+  title: "pMarca terminal",
+  description: "pmarca-terminal",
 };
 
 export default function RootLayout({
