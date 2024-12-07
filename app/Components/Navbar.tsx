@@ -6,31 +6,31 @@ export default function Navbar() {
           <li>
             <a
               onClick={() => {
-                window.open("https://docs.simli.com/introduction");
+                window.open("https://t.me/pmarcacto"); // Replace with your actual Telegram link
               }}
-              className="block cursor-pointer py-2 px-3 text-gray-900 rounded   md:border-0 md:p-0 dark:text-white hover:underline    "
+              className="block cursor-pointer py-2 px-3 text-gray-900 rounded md:border-0 md:p-0 dark:text-white hover:underline"
             >
-              Documentation
+              Telegram
             </a>
           </li>
           <li>
             <a
               onClick={() => {
-                window.open("https://app.simli.com");
+                window.open("https://twitter.com/pmarcaonsol"); // Replace with your actual Twitter link
               }}
-              className="block cursor-pointer py-2 px-3 text-gray-900 rounded   md:border-0  md:p-0 dark:text-white hover:underline    "
+              className="block cursor-pointer py-2 px-3 text-gray-900 rounded md:border-0 md:p-0 dark:text-white hover:underline"
             >
-              Create Avatar
+              Twitter
             </a>
           </li>
           <li>
             <a
               onClick={() => {
-                window.open("https://discord.gg/yQx49zNF4d");
+                window.open("https://www.dexscreener.com/token/GvKeVuawSzGiPkkZnQA34M2w5mkQNANJstxjaQvaGZ8a"); // Replace with your actual Dexscreener link
               }}
-              className="block cursor-pointer py-2 px-3 text-gray-900 rounded   md:border-0  md:p-0 dark:text-white hover:underline    "
+              className="block cursor-pointer py-2 px-3 text-gray-900 rounded md:border-0 md:p-0 dark:text-white hover:underline"
             >
-              Discord
+              Dexscreener
             </a>
           </li>
         </ul>
