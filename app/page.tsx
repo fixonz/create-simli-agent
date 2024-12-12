@@ -31,7 +31,7 @@ const Demo: React.FC = () => {
           }}
           className="font-bold cursor-pointer mb-8 text-xl leading-8"
         >
-          PMARCA .... the real terminal
+     CA: GvKeVuawSzGiPkkZnQA34M2w5mkQNANJstxjaQvaGZ8a
         </text>
       </div>
 
