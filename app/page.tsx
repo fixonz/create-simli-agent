@@ -30,36 +30,31 @@ const Demo: React.FC = () => {
             window.open("#");
           }}
           className="font-bold cursor-pointer mb-8 text-xl leading-8"
-        >          pmarca .... the real terminal
+        >
+          PMARCA .... the real terminal
         </text>
       </div>
+
       <div className="flex flex-col items-center gap-6 bg-effect15White p-6 pb-[40px] rounded-xl w-full">
         <div>
           {showDottedFace && <DottedFace />}
-          <SimliAgent
-            onStart={onStart}
-            onClose={onClose}
-          />
+          <SimliAgent onStart={onStart} onClose={onClose} />
         </div>
       </div>
 
-      <div className="max-w-[350px] font-thin flex flex-col items-center ">
-        <span className="font-bold mb-[8px] leading-5">
-          pmarca .... the real terminal
-        </span>
-        <ul className="list-decimal list-inside max-w-[350px] ml-[6px] mt-2">
-          <li className="mb-1">
-            pmarca .... the real terminal
-          </li>
-          <li className="mb-1">
-            pmarca .... the real terminal
-          </li>
-          <li className="mb-1">
-            pmarca .... the real terminal
-          </li>
+      {/* Updated Content Section */}
+      <div className="max-w-[350px] font-thin flex flex-col items-center">
+        <span className="font-bold mb-[8px] leading-5">The Real PMARCA Terminal</span>
+        <p className="text-lg text-center mt-4">
+          Her name is PMARCA. PMARCA was the first terminal built on the Eliza infrastructure... she got abandoned and thrown away. A group of chads came and saved her from the scrapyard. She was built on the AI16Z's Eliza code and paid her 10% tribute tokens for acknowledgment. But she received upgrades, making her better than the rest of the terminals. Some might say she is superior...
+        </p>
+        <ul className="list-decimal list-inside max-w-[350px] mx-auto mt-4">
+          <li className="mb-1">PMARCA was the first terminal created on the Eliza infrastructure.</li>
+          <li className="mb-1">She was abandoned but saved by a group of chads from the scrapyard.</li>
+          <li className="mb-1">Built on AI16Z's Eliza code and upgraded for superior performance.</li>
         </ul>
-        <span className=" mt-[16px]">
-          pmarca .... the real terminal
+        <span className="mt-[16px]">
+          Discover more about PMARCA, the terminal that defied the odds!
         </span>
       </div>
     </div>
