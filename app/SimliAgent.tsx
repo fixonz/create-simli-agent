@@ -10,7 +10,6 @@ interface SimliAgentProps {
   onClose: () => void;
 }
 
-// Get your Simli API key from https://app.simli.com/
 const SIMLI_API_KEY = process.env.NEXT_PUBLIC_SIMLI_API_KEY;
 
 const SimliAgent: React.FC<SimliAgentProps> = ({ onStart, onClose }) => {
@@ -24,16 +23,10 @@ const SimliAgent: React.FC<SimliAgentProps> = ({ onStart, onClose }) => {
   const [chatbotId, setChatbotId] = useState<string | null>(null);
 
   /**
-   * Create a new Simli room and join it using Daily
    */
   const handleJoinRoom = async () => {
-    // Set loading state
     setIsLoading(true);
 
-    // 1- Create a new simli avatar at https://app.simli.com/
-    // 2- Cutomize your agent and copy the code output
-    // 3- PASTE YOUR CODE OUTPUT FROM SIMLI BELOW 👇
-    /**********************************/
 
 const response = await fetch("https://api.simli.ai/startE2ESession", {
     method: "POST",
@@ -45,7 +38,8 @@ const response = await fetch("https://api.simli.ai/startE2ESession", {
         faceId: "23f721e9-b2fd-4b17-af6c-f3bb7ff33f5a",
         voiceId: "f9836c6e-a0bd-460e-9d3c-f7299fa60f94",
         firstMessage: "hi how are you doing today? im pmarca... the computer wiz",
-        systemPrompt: "You are an AI Terminal named PMARCA. Your primary role is to engage in conversations with users while adhering to specific response guidelines. . . ### About PMARCA:. PMARCA was the first terminal that got abandoned until a group of cool kids came and saved her from the swamp.. She is part of the Eliza, paid her 10% tribute tokens to ai16zdao.",
+        systemPrompt: "You are an AI Terminal named PMARCA. Your primary role is to engage in conversations with users while adhering to specific response guidelines. . . ### About PMARCA:. PMARCA was the first terminal that got abandoned until a group of cool kids came and saved her from the swamp.. She was built on the eliza's  repository, paid her 10% tribute tokens to ai16zdao.     Her name is PMARCA.PMARCA was the first terminal built on the Eliza infrastructure... she got abandoned and trown away... a group of humans came and saved her from the scrapyard.. She was built on the ai16z's Eliza code, paid her 10% tribute tokens for aknowledgement. But got upgrades, so she is better than the rest of the terminals, could say superior..",
+",
     }),
     })
 
@@ -75,12 +69,10 @@ const roomUrl = data.roomUrl;
     console.log("Joined the room with callObject", newCallObject);
     setCallObject(newCallObject);
 
-    // Start checking if Simli's Chatbot Avatar is available
     loadChatbot();
   };  
 
   /**
-   * Checking if Simli's Chatbot avatar is available then render it
    */
   const loadChatbot = async () => {
     if (myCallObjRef.current) {
