@@ -26,7 +26,7 @@ export default function Navbar() {
           <li>
             <a
               onClick={() => {
-                window.open("https://www.dexscreener.com/token/GvKeVuawSzGiPkkZnQA34M2w5mkQNANJstxjaQvaGZ8a"); // Replace with your actual Dexscreener link
+                window.open("https://dexscreener.com/solana/GvKeVuawSzGiPkkZnQA34M2w5mkQNANJstxjaQvaGZ8a"); // Replace with your actual Dexscreener link
               }}
               className="block cursor-pointer py-2 px-3 text-gray-900 rounded md:border-0 md:p-0 dark:text-white hover:underline"
             >
