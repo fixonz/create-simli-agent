@@ -148,7 +148,7 @@ const roomUrl = data.roomUrl;
               <IconSparkleLoader className="h-[20px] animate-loader" />
             ) : (
               <span className="font-abc-repro-mono font-bold w-[164px]">
-                Test Interaction
+                Let's chat!
               </span>
             )}
           </button>
