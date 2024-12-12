@@ -71,14 +71,34 @@ input[type="submit"]:hover {
   transform: scale(1.05);
 }
 
+/* Neon blue text shadow for headers */
 h1,
 h2,
 h3 {
-  font-family: 'Binance PLEX', sans-serif; /* Use BinancePlex for headers */
+  font-family: 'Binance PLEX', sans-serif;
   color: rgb(var(--neon-blue));
-  text-shadow: 0 0 10px rgb(var(--neon-blue)), 0 0 15px rgb(var(--neon-blue)); /* Neon glow effect */
+  text-shadow: 0 0 5px rgb(var(--neon-blue)), 0 0 10px rgb(var(--neon-blue)), 0 0 15px rgb(var(--neon-blue)); /* Neon glow */
 }
 
+/* Neon text effect for general text */
+p,
+span,
+ul,
+li {
+  font-family: 'Binance PLEX', sans-serif;
+  color: rgb(var(--foreground-rgb));
+  text-shadow: 0 0 5px rgb(var(--neon-blue)), 0 0 10px rgb(var(--neon-blue)), 0 0 15px rgb(var(--neon-blue)); /* Neon text shadow */
+}
+
+/* Neon blue background for highlighted text */
+.highlight {
+  background-color: rgb(var(--neon-blue));
+  color: rgb(var(--foreground-rgb));
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+/* Styling for list items with a neon touch */
 ul {
   list-style-type: none; /* Remove default bullets for a cleaner terminal look */
   padding: 0;
@@ -86,28 +106,29 @@ ul {
 
 li {
   margin: 5px 0;
-  font-family: 'Binance PLEX', sans-serif; /* Keep BinancePlex font for list items */
+  font-family: 'Binance PLEX', sans-serif;
+  color: rgb(var(--foreground-rgb)); /* Ensure list items use BinancePlex */
+  text-shadow: 0 0 5px rgb(var(--neon-blue)), 0 0 10px rgb(var(--neon-blue)); /* Neon glow effect */
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
-  
+
   .neon-border {
     border: 2px solid rgb(var(--neon-blue)); /* Neon blue border */
   }
-  
+
   .neon-shadow {
     box-shadow: 0 0 15px rgb(var(--neon-blue)); /* Neon blue glow effect */
   }
-  
+
   .neon-text {
     color: rgb(var(--neon-blue)); /* Apply neon blue color to text */
     text-shadow: 0 0 10px rgb(var(--neon-blue)), 0 0 15px rgb(var(--neon-blue)); /* Neon effect */
   }
-  
-  /* Terminal-like background for components */
+
   .terminal-background {
     background-color: rgb(0, 0, 0);
     border: 2px solid rgb(var(--neon-blue));
