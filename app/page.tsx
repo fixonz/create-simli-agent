@@ -18,3 +18,6 @@ const Demo: React.FC = () => {
       </div>
     </div>
   );
+};
+
+export default Demo;
