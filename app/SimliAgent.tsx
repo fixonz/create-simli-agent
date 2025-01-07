@@ -126,8 +126,8 @@ const roomUrl = data.roomUrl;
   return (
     <>
       {isAvatarVisible && (
-        <div className="h-[350px] w-[350px]">
-          <div className="h-[350px] w-[350px]">
+        <div className="h-[750px] w-[750px]">
+          <div className="h-[750px] w-[750px]">
             <DailyProvider callObject={callObject}>
               {chatbotId && <VideoBox key={chatbotId} id={chatbotId} />}
             </DailyProvider>
