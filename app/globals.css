@@ -13,18 +13,18 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 255, 255, 255; /* White text for terminal */
-  --background-start-rgb: 0, 0, 0; /* Dark terminal background */
-  --background-end-rgb: 0, 0, 0; /* Continuation of dark terminal background */
-  --neon-blue: 0, 255, 255; /* Neon blue for accents */
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 0, 0, 0;
+  --background-end-rgb: 0, 0, 0;
+  --neon-blue: 0, 255, 255;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --foreground-rgb: 255, 255, 255; /* White text for terminal */
-    --background-start-rgb: 0, 0, 0; /* Dark background */
-    --background-end-rgb: 0, 0, 0; /* Darker background */
-    --neon-blue: 0, 255, 255; /* Neon blue accents */
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+    --neon-blue: 0, 255, 255;
   }
 }
 
@@ -36,19 +36,19 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
-  font-family: 'Binance PLEX', sans-serif; /* Set BinancePlex as the global font */
+  font-family: 'Binance PLEX', sans-serif;
   line-height: 1.5;
   padding: 20px;
 }
 
 a {
-  color: rgb(var(--neon-blue)); /* Neon blue for links */
+  color: rgb(var(--neon-blue));
   text-decoration: underline;
   transition: color 0.3s ease;
 }
 
 a:hover {
-  color: rgb(0, 200, 255); /* Slightly lighter neon blue on hover */
+  color: rgb(0, 200, 255);
 }
 
 button,
@@ -60,37 +60,75 @@ input[type="submit"] {
   border-radius: 8px;
   padding: 12px 25px;
   cursor: pointer;
-  font-family: 'Binance PLEX', sans-serif; /* Ensure button text uses BinancePlex */
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  font-family: 'Binance PLEX', sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  min-height: 44px;
+  min-width: 44px;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(var(--neon-blue), 0.5);
+  position: relative;
+  overflow: hidden;
 }
 
 button:hover,
 input[type="button"]:hover,
 input[type="submit"]:hover {
-  background-color: rgb(0, 200, 255); /* Lighter neon blue on hover */
-  transform: scale(1.05);
+  background-color: rgba(var(--neon-blue), 0.8);
+  transform: translateY(-2px);
+  box-shadow: 0 0 15px rgba(var(--neon-blue), 0.7);
 }
 
-/* Neon blue text shadow for headers */
-h1,
-h2,
-h3 {
+button:active,
+input[type="button"]:active,
+input[type="submit"]:active {
+  transform: translateY(1px);
+  box-shadow: 0 0 5px rgba(var(--neon-blue), 0.3);
+}
+
+button:focus,
+input[type="button"]:focus,
+input[type="submit"]:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(var(--neon-blue), 0.5);
+}
+
+button::before,
+input[type="button"]::before,
+input[type="submit"]::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(var(--neon-blue), 0.4),
+    transparent
+  );
+  transition: all 0.6s;
+}
+
+button:hover::before,
+input[type="button"]:hover::before,
+input[type="submit"]:hover::before {
+  left: 100%;
+}
+
+h1, h2, h3 {
   font-family: 'Binance PLEX', sans-serif;
   color: rgb(var(--neon-blue));
-  text-shadow: 0 0 5px rgb(var(--neon-blue)), 0 0 10px rgb(var(--neon-blue)), 0 0 15px rgb(var(--neon-blue)); /* Neon glow */
+  text-shadow: 0 0 5px rgb(var(--neon-blue)), 0 0 10px rgb(var(--neon-blue)), 0 0 15px rgb(var(--neon-blue));
 }
 
-/* Neon text effect for general text */
-p,
-span,
-ul,
-li {
+p, span, ul, li {
   font-family: 'Binance PLEX', sans-serif;
   color: rgb(var(--foreground-rgb));
-  text-shadow: 0 0 5px rgb(var(--neon-blue)), 0 0 10px rgb(var(--neon-blue)), 0 0 15px rgb(var(--neon-blue)); /* Neon text shadow */
+  text-shadow: 0 0 5px rgb(var(--neon-blue)), 0 0 10px rgb(var(--neon-blue)), 0 0 15px rgb(var(--neon-blue));
 }
 
-/* Neon blue background for highlighted text */
 .highlight {
   background-color: rgb(var(--neon-blue));
   color: rgb(var(--foreground-rgb));
@@ -98,17 +136,16 @@ li {
   border-radius: 5px;
 }
 
-/* Styling for list items with a neon touch */
 ul {
-  list-style-type: none; /* Remove default bullets for a cleaner terminal look */
+  list-style-type: none;
   padding: 0;
 }
 
 li {
   margin: 5px 0;
   font-family: 'Binance PLEX', sans-serif;
-  color: rgb(var(--foreground-rgb)); /* Ensure list items use BinancePlex */
-  text-shadow: 0 0 5px rgb(var(--neon-blue)), 0 0 10px rgb(var(--neon-blue)); /* Neon glow effect */
+  color: rgb(var(--foreground-rgb));
+  text-shadow: 0 0 5px rgb(var(--neon-blue)), 0 0 10px rgb(var(--neon-blue));
 }
 
 @layer utilities {
@@ -117,16 +154,16 @@ li {
   }
 
   .neon-border {
-    border: 2px solid rgb(var(--neon-blue)); /* Neon blue border */
+    border: 2px solid rgb(var(--neon-blue));
   }
 
   .neon-shadow {
-    box-shadow: 0 0 15px rgb(var(--neon-blue)); /* Neon blue glow effect */
+    box-shadow: 0 0 15px rgb(var(--neon-blue));
   }
 
   .neon-text {
-    color: rgb(var(--neon-blue)); /* Apply neon blue color to text */
-    text-shadow: 0 0 10px rgb(var(--neon-blue)), 0 0 15px rgb(var(--neon-blue)); /* Neon effect */
+    color: rgb(var(--neon-blue));
+    text-shadow: 0 0 10px rgb(var(--neon-blue)), 0 0 15px rgb(var(--neon-blue));
   }
 
   .terminal-background {
@@ -134,6 +171,6 @@ li {
     border: 2px solid rgb(var(--neon-blue));
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 0 15px rgb(var(--neon-blue)); /* Neon shadow effect */
+    box-shadow: 0 0 15px rgb(var(--neon-blue));
   }
 }
