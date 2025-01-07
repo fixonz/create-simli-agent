@@ -104,63 +104,63 @@ const SimliAgent: React.FC<SimliAgentProps> = ({ onStart, onClose }) => {
   }, [callObject, isMuted]);
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen w-full p-4 space-y-4">
-      {isAvatarVisible && (
-        <div className="w-[80vw] h-[80vw] max-w-[750px] max-h-[750px]">
-          <div className="w-full h-full">
+    <div className="flex flex-col items-center justify-center min-h-screen w-full p-4">
+      <div className="w-full max-w-[750px] flex flex-col items-center">
+        {isAvatarVisible && (
+          <div className="w-full aspect-square mb-4">
             <DailyProvider callObject={callObject}>
               {chatbotId && <VideoBox key={chatbotId} id={chatbotId} />}
             </DailyProvider>
           </div>
-        </div>
-      )}
-      <div className="w-full max-w-[750px]">
-        {!isAvatarVisible ? (
-          <button
-            onClick={handleJoinRoom}
-            disabled={isLoading}
-            className={cn(
-              "w-full h-[52px] disabled:bg-[#343434] disabled:text-white disabled:hover:rounded-[100px] bg-simliblue text-white py-3 px-6 rounded-[100px] transition-all duration-300 hover:text-black hover:bg-white hover:rounded-sm",
-              "flex justify-center items-center relative overflow-hidden"
-            )}
-          >
-            {isLoading ? (
-              <div className="absolute inset-0 flex items-center justify-center bg-simliblue">
-                <IconSparkleLoader className="h-[20px] animate-loader" />
-              </div>
-            ) : (
-              <span className="font-abc-repro-mono font-bold">
-                Let's chat!
-              </span>
-            )}
-            <div className="absolute inset-0 bg-white opacity-0 hover:opacity-20 transition-opacity duration-300"></div>
-          </button>
-        ) : (
-          <div className="flex items-center gap-4 w-full">
-            <button
-              onClick={handleLeaveRoom}
-              className={cn(
-                "group text-white flex-grow bg-red hover:bg-white h-[52px] px-6 rounded-[100px] transition-all duration-300 relative overflow-hidden"
-              )}
-            >
-              <span className="font-abc-repro-mono group-hover:text-black font-bold transition-all duration-300 relative z-10">
-                Stop Interaction
-              </span>
-              <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
-            </button>
-            <button
-              onClick={handleMute}
-              className={cn(
-                "group text-white bg-gray-600 hover:bg-white h-[52px] px-6 rounded-[100px] transition-all duration-300 relative overflow-hidden"
-              )}
-            >
-              <span className="font-abc-repro-mono group-hover:text-black font-bold transition-all duration-300 relative z-10">
-                {isMuted ? "Unmute" : "Mute"}
-              </span>
-              <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
-            </button>
-          </div>
         )}
+        <div className="w-full">
+          {!isAvatarVisible ? (
+            <button
+              onClick={handleJoinRoom}
+              disabled={isLoading}
+              className={cn(
+                "w-full h-[52px] disabled:bg-[#343434] disabled:text-white disabled:hover:rounded-[100px] bg-simliblue text-white py-3 px-6 rounded-[100px] transition-all duration-300 hover:text-black hover:bg-white hover:rounded-sm",
+                "flex justify-center items-center relative overflow-hidden"
+              )}
+            >
+              {isLoading ? (
+                <div className="absolute inset-0 flex items-center justify-center bg-simliblue">
+                  <IconSparkleLoader className="h-[20px] animate-loader" />
+                </div>
+              ) : (
+                <span className="font-abc-repro-mono font-bold">
+                  Let's chat!
+                </span>
+              )}
+              <div className="absolute inset-0 bg-white opacity-0 hover:opacity-20 transition-opacity duration-300"></div>
+            </button>
+          ) : (
+            <div className="flex items-center gap-4 w-full">
+              <button
+                onClick={handleLeaveRoom}
+                className={cn(
+                  "group text-white flex-grow bg-red hover:bg-white h-[52px] px-6 rounded-[100px] transition-all duration-300 relative overflow-hidden"
+                )}
+              >
+                <span className="font-abc-repro-mono group-hover:text-black font-bold transition-all duration-300 relative z-10">
+                  Stop Interaction
+                </span>
+                <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+              </button>
+              <button
+                onClick={handleMute}
+                className={cn(
+                  "group text-white bg-gray-600 hover:bg-white h-[52px] px-6 rounded-[100px] transition-all duration-300 relative overflow-hidden"
+                )}
+              >
+                <span className="font-abc-repro-mono group-hover:text-black font-bold transition-all duration-300 relative z-10">
+                  {isMuted ? "Unmute" : "Mute"}
+                </span>
+                <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+              </button>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
