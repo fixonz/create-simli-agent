@@ -124,53 +124,51 @@ const roomUrl = data.roomUrl;
   };
 
   return (
-    <>
-      {isAvatarVisible && (
-        <div className="h-[750px] w-[750px]">
-          <div className="h-[750px] w-[750px]">
-            <DailyProvider callObject={callObject}>
-              {chatbotId && <VideoBox key={chatbotId} id={chatbotId} />}
-            </DailyProvider>
-          </div>
+  <div className="flex flex-col items-center justify-center min-h-screen w-full p-4">
+    {isAvatarVisible && (
+      <div className="w-[80vw] h-[80vw] max-w-[750px] max-h-[750px] mb-4">
+        <div className="w-full h-full">
+          <DailyProvider callObject={callObject}>
+            {chatbotId && <VideoBox key={chatbotId} id={chatbotId} />}
+          </DailyProvider>
         </div>
-      )}
-      <div className="flex flex-col items-center">
-        {!isAvatarVisible ? (
+      </div>
+    )}
+    <div className="w-full max-w-[750px]">
+      {!isAvatarVisible ? (
+        <button
+          onClick={handleJoinRoom}
+          disabled={isLoading}
+          className={cn(
+            "w-full h-[52px] mt-4 disabled:bg-[#343434] disabled:text-white disabled:hover:rounded-[100px] bg-simliblue text-white py-3 px-6 rounded-[100px] transition-all duration-300 hover:text-black hover:bg-white hover:rounded-sm",
+            "flex justify-center items-center"
+          )}
+        >
+          {isLoading ? (
+            <IconSparkleLoader className="h-[20px] animate-loader" />
+          ) : (
+            <span className="font-abc-repro-mono font-bold w-[164px]">
+              Let's chat!
+            </span>
+          )}
+        </button>
+      ) : (
+        <div className="flex items-center gap-4 w-full">
           <button
-            onClick={handleJoinRoom}
-            disabled={isLoading}
+            onClick={handleLeaveRoom}
             className={cn(
-              "w-full h-[52px] mt-4 disabled:bg-[#343434] disabled:text-white disabled:hover:rounded-[100px] bg-simliblue text-white py-3 px-6 rounded-[100px] transition-all duration-300 hover:text-black hover:bg-white hover:rounded-sm",
-              "flex justify-center items-center"
+              "mt-4 group text-white flex-grow bg-red hover:rounded-sm hover:bg-white h-[52px] px-6 rounded-[100px] transition-all duration-300"
             )}
           >
-            {isLoading ? (
-              <IconSparkleLoader className="h-[20px] animate-loader" />
-            ) : (
-              <span className="font-abc-repro-mono font-bold w-[164px]">
-                Let's chat!
-              </span>
-            )}
+            <span className="font-abc-repro-mono group-hover:text-black font-bold w-[164px] transition-all duration-300">
+              Stop Interaction
+            </span>
           </button>
-        ) : (
-          <>
-            <div className="flex items-center gap-4 w-full">
-              <button
-                onClick={handleLeaveRoom}
-                className={cn(
-                  "mt-4 group text-white flex-grow bg-red hover:rounded-sm hover:bg-white h-[52px] px-6 rounded-[100px] transition-all duration-300"
-                )}
-              >
-                <span className="font-abc-repro-mono group-hover:text-black font-bold w-[164px] transition-all duration-300">
-                  Stop Interaction
-                </span>
-              </button>
-            </div>
-          </>
-        )}
-      </div>
-    </>
-  );
-};
+        </div>
+      )}
+    </div>
+  </div>
+);
+
 
 export default SimliAgent;
