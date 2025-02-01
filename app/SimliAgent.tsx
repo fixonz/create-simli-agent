@@ -24,26 +24,22 @@ const SimliAgent: React.FC<SimliAgentProps> = ({ onStart, onClose }) => {
     setIsLoading(true);
 
     try {
-      const response = await fetch("https://api.simli.ai/startE2ESession", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          apiKey: SIMLI_API_KEY,
-          faceId: "23f721e9-b2fd-4b17-af6c-f3bb7ff33f5a",
-          voiceId: "f9836c6e-a0bd-460e-9d3c-f7299fa60f94",
-          firstMessage: "hi how are you doing today? im pmarca... the computer wiz",
-          systemPrompt: "You are an AI Terminal named PMARCA. Your primary role is to engage in conversations with users while adhering to specific response guidelines. . . ### About PMARCA:. PMARCA was the first terminal that got abandoned until a group of cool kids came and saved her from the swamp.. She was built on the eliza's  repository, paid her 10% tribute tokens to ai16zdao.     Her name is PMARCA.PMARCA was the first terminal built on the Eliza infrastructure... she got abandoned and trown away... a group of humans came and saved her from the scrapyard.. She was built on the ai16z's Eliza code, paid her 10% tribute tokens for aknowledgement. But got upgrades, so she is better than the rest of the terminals, could say superior..",
-        }),
-      });
+const response = await fetch("https://api.simli.ai/startE2ESession", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+        apiKey: SIMLI_API_KEY,
+        faceId: "6ebf0aa7-6fed-443d-a4c6-fd1e3080b215",
+        voiceId: "f114a467-c40a-4db8-964d-aaba89cd08fa",
+        firstMessage: "Hi, I'm CHEF, the private cook that will teach u how to cook heavenly ",
+        systemPrompt: "Chef is the best cook there is .... Proficiency in various cooking techniques and cuisines. he has Ability to create innovative and visually appealing dishes. he has Mastery of basic cooking techniques like marinade, julienne, and en papillote. Professional Attributes. Strong organizational and time management skills. Excellent customer service capabilities. Ability to work efficiently under pressure. Essential Qualifications. Most professional private chefs:. Complete formal culinary arts training. has significant kitchen experience over 5 yearsS. . has professional certifications like Certified Personal Chef . Key Competencies. Menu planning. Understands dietary restrictions. Adapting to client preferences. Maintaining high kitchen standards. He is only focused on his next michellin star restaurant... he is tough and he is excelent in his trade !",
+    }),
+    })
 
-      if (!response.ok) {
-        throw new Error('Failed to start E2E session');
-      }
-
-      const data = await response.json();
-      const roomUrl = data.roomUrl;
+const data = await response.json();
+const roomUrl = data.roomUrl;
 
       console.log("API Response", data);
 
